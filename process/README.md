@@ -1,7 +1,7 @@
 # The process
 
 ## Train trip 2022-10-26, Wednesday
-I'm rushing to give form to the questionnaire. Looking to use LateX, because of versioning.
+I'm in a hurry to get the questionnaire together. I am looking to use LateX, because the version control.
 
 ## Questionnaire 2022-10-24, Monday
 A questionnaire would be a good way to gauge insights about this. It's not obvious how to ask the question, without introducing bias about time. For instance according to the drawing below the current vernacular would be used.
