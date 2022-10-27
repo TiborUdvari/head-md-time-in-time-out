@@ -1,7 +1,18 @@
 # The process
 
-## 2022-10-28, Results
-
+## 2022-10-28, Questionnaire results
+![](./img/observation-1.jpg)
+![](./img/observation-2.jpg)
+![](./img/observation-3.jpg)
+![](./img/observation-4.jpg)
+![](./img/observation-5.jpg)
+![](./img/observation-6.jpg)
+![](./img/observation-7.jpg)
+![](./img/observation-8.jpg)
+![](./img/observation-9.jpg)
+![](./img/observation-10.jpg)
+![](./img/observation-11.jpg)
+![](./img/observation-12.jpg)
 
 ## 2022-10-27, Finishing questionnaire and giving it to people
 ![](/documents/example_graphic.pdf)
