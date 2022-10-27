@@ -1,5 +1,11 @@
 # The process
 
+## 2022-10-28, Results
+
+
+## 2022-10-27, Finishing questionnaire and giving it to people
+![](/documents/example_graphic.pdf)
+
 ## Train trip 2022-10-26, Wednesday
 I'm in a hurry to get the questionnaire together. I am looking to use LateX, because the version control.
 
