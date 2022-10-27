@@ -9,8 +9,8 @@
 \usepackage{typearea}
 \usepackage{tikz}
 
-% \areaset{17cm}{26cm}
-% \setlength{\topmargin}{-1cm}
+ \areaset{17cm}{26cm}
+ \setlength{\topmargin}{-1cm}
 \usepackage{scrlayer-scrpage}
 \pagestyle{scrheadings}
 \ohead{\pagemark} 
@@ -122,31 +122,39 @@
 \begin{document}
 
 \begin{center}
-\textbf{\huge The time questionnaire }
+\textbf{\huge Time perception questionnaire }
 \end{center}\vskip1em
 
-\noindent Welcome to this very important survey with which we
-researchers want to look deep inside of you (be afraid!). Anyway,
-thank you for filling it all out.
+%\noindent Welcome to this very important survey with which we
+%researchers want to look deep inside of you (be afraid!). Anyway,
+%thank you for filling it all out.
 
 \section*{About you}
 
-\Qitem{ \Qq{Your name}: \Qline{8cm} }
+\Qitem{ \Qq{First name}: \Qline{8cm} }
 
 \Qitem{ \Qq{Last name }: \Qline{8cm} }
 
-\Qitem{ \Qq{How old are you?} I am \Qline{1.5cm} years old.}
+%\Qitem{ \Qq{How old are you?} I am \Qline{1.5cm} years old.}
 
 \Qitem{ \Qq{What is your occupation?}: \Qline{5.4cm} }
+
+\Qitem{ \Qq{What is your e-mail?}: \Qline{6.2cm} }
 
 
 %\Qitem{ \Qq{Are you in a good mood right now?} \hskip0.4cm \QO{}
 %absolutely \hskip0.5cm \QO{} not really because: \Qline{3cm} }
 
+\clearpage
+
 \newcommand*{\xMin}{0}%
-\newcommand*{\xMax}{23}%
+\newcommand*{\xMax}{24}%
 \newcommand*{\yMin}{0}%
 \newcommand*{\yMax}{6}%
+
+\section*{Perceptions of time}
+
+\Qitem{ \Qq{Draw a curve of how you experienced time yesterday \\ up is fast, down is slow} }
 
 \begin{tikzpicture}[thick,scale=0.5, every node/.style={scale=0.5}]
     \foreach \i in {\xMin,...,\xMax} {
@@ -154,149 +162,111 @@ thank you for filling it all out.
     }
     \foreach \i in {\yMin,...,\yMax} {
 %        \draw [very thin,gray] (\xMin,\i) -- (\xMax,\i) node [left] at (\xMin,\i) {$\i$};
-        \draw [very thin,gray] (\xMin,\i) -- (\xMax,\i);
+        \draw [very thin,gray] (\xMin,\i) -- (\xMax,\i) node [right] (\xMin,\i) {};
 
     }
 
 % \draw [step=1.0,blue, very thick] (0.5,0.5) grid (5.5,4.5);
 % \draw [very thick, brown, step=1.0cm,xshift=-0.5cm, yshift=-0.5cm] (0.5,0.5) grid +(5.5,4.5);
 
-\draw [very thick, black] (0,3) -- (\xMax, 3);
+\draw [thick, black] (0,3) -- (\xMax, 3);
 
 \end{tikzpicture}
 
-\Qitem{ \Qq{Do you like having an option?}
-\begin{Qlist}
-\item Yes, this meets my need for autonomy.
-\item No, I'd rather have someone else decide for me.
-\item Not sure.
-\end{Qlist}
-}
 
-\Qitem{ \Qq{What kind of music do you like best?}
-\begin{Qlist}
-\item Johann Sebastian Bach
-\item Jazz
-\item The Beatles
-\item Other: \Qline{4cm}
-\end{Qlist}
-}
+% ---------------------------------------------------------
+% Draw one months
+% --------------------------------------------------------- 
 
-\minisec{Please evaluate the following composers}
-\vskip.5em
+\newcommand*{\xMinONEMONTH}{0}%
+\newcommand*{\xMaxONEMONTH}{30}%
+\newcommand*{\yMinONEMONTH}{0}%
+\newcommand*{\yMaxONEMONTH}{6}%
 
-\Qitem[a]{ \Qq{Mozart} \Qtab{3cm}{horrible \Qrating{5} fantastic}}
 
-\Qitem[b]{ \Qq{Beethoven} \Qtab{3cm}{horrible \Qrating{5} fantastic}}
+\Qitem{ \Qq{Draw a curve of how you experienced this month \\ up is fast, down is slow} }
 
-\Qitem[c]{ \Qq{Johann S. Bach} \Qtab{3cm}{horrible \Qrating{5}
-fantastic}}
+\begin{tikzpicture}[thick,scale=0.5, every node/.style={scale=0.5}]
 
-\Qitem[d]{ \Qq{John Lennon}\Qtab{2.5cm}{\parbox[t]{3.3cm}{\raggedleft
-Uh, well, I do not like his music very much}
-\Qrating{7} \parbox[t]{3cm}{Oh, yes, you know, really great
-stuff}}}
+    \foreach \i in {\xMinONEMONTH,...,\xMaxONEMONTH} {
+        \draw [very thin,gray] (\i,\yMinONEMONTH) -- (\i,\yMaxONEMONTH) node [below] at (\i,\yMin) { \pgfmathparse{int(\i+1)}\pgfmathresult}; 
+    }
+    
+     
+    
+    \foreach \i in {\yMinONEMONTH,...,\yMaxONEMONTH} {
+        \draw [very thin,gray] (\xMinONEMONTH,\i) -- (\xMaxONEMONTH,\i) node [right] (\xMinONEMONTH,\i) {};
+    }
 
-\Qitem[e]{ \Qq{Elvis}\Qtab{2.5cm}{\parbox[t]{3.3cm}{\raggedleft Uh,
-well, I do not like his music very much}
-\Qrating{7} \parbox[t]{3cm}{Oh, yes, you know, really great
-stuff}}}
+\draw [thick, black] (0,3) -- (\xMaxONEMONTH, 3);
 
-\section*{About this questionnaire}
+\end{tikzpicture}
 
-\Qitem{\Qq{Do you like the style so far?} \Qtab{5.5cm}{\QO{} Yes
-\hskip0.5cm \QO{} No}}
 
-\Qitem{\Qq{Is it really worth the ink?} \Qtab{5.5cm}{\QO{} Guess so.
-\hskip0.5cm \QO{} Probably not. \hskip0.5cm \QO{} Don't know.}}
 
-\Qitem{\Qq{How does this item look different from the previous one?}
-\Qtab{10.5cm}{\QO{}\Qtab{0.6cm}{Oh. Does it?}}\par
-\Qtab{10.5cm}{\QO{}\Qtab{0.6cm}{No clue. I just can't figure it out.
-So sorry.}}\par
-\Qtab{10.5cm}{\QO{}\Qtab{0.6cm}{I guess what you mean is that here
-the different answer options are below each other.}}\par
-}
 
-\Qitem[a]{ \Qq{Please describe your first impression.} \Qlines{2} }
+% ---------------------------------------------------------
+% Draw the months
+% --------------------------------------------------------- 
 
-\Qitem[b]{ \Qq{In case you would like some more lines to write, here
-they are:} \Qlines{4} }
+\newcommand*{\xMinMONTH}{0}%
+\newcommand*{\xMaxMONTH}{12}%
+\newcommand*{\yMinMONTH}{0}%
+\newcommand*{\yMaxMONTH}{6}%
 
-\section*{Another feature}
 
-\noindent Now, here is another nice feature: you can automatically
-alter the background color of the items. Here is how it can look like.
-Because we are too lazy to think of new questions we will just ask you
-the same questions again. There is one difference to the above though,
-can you find it?
+\Qitem{ \Qq{Draw a curve of how you experienced last year \\ up is fast, down is slow} }
 
-\renewcommand{\QO}{$\ocircle$}% Use circles now instead of boxes.
+\begin{tikzpicture}[thick,scale=0.5, every node/.style={scale=0.5}]
 
-\section*{About you}
+    \foreach \i in {\xMinMONTH,...,\xMaxMONTH} {
+        \draw [very thin,gray] (\i,\yMinMONTH) -- (\i,\yMaxMONTH) ;
+    }
+    
+     \foreach \x [count=\i] in {JAN, FEB, MAR, APR, MAY, JUN, JUL, AUG, SEP, OCT, NOV, DEC} {
+        \draw [very thin,gray] (\i-1, \yMinMONTH) -- (\i-1, \yMaxMONTH) node [below] at (\i-1, \yMinMONTH) {\x};
+    }
+    
+    \foreach \i in {\yMinMONTH,...,\yMaxMONTH} {
+        \draw [very thin,gray] (\xMinMONTH,\i) -- (\xMaxMONTH,\i) node [right] (\xMinMONTH,\i) {};
+    }
 
-\QItem{ \Qq{Your name}: \Qline{8cm} }
+\draw [thick, black] (0,3) -- (\xMaxMONTH, 3);
 
-\QItem{ \Qq{How old are you?} I am \Qline{1.5cm} years old.}
+\end{tikzpicture}
 
-\QItem{ \Qq{Are you in a good mood right now?} \hskip0.4cm \QO{}
-absolutely \hskip0.5cm \QO{} not really because: \Qline{3cm} }
 
-\QItem{ \Qq{Do you like having an option?}
-\begin{Qlist}
-\item Yes, this meets my need for autonomy.
-\item No, I'd rather have someone else decide for me.
-\item Not sure.
-\end{Qlist}
-}
+% ---------------------------------------------------------
+% Draw the months
+% --------------------------------------------------------- 
 
-\QItem{ \Qq{What kind of music do you like best?}
-\begin{Qlist}
-\item Johann Sebastian Bach
-\item Jazz
-\item The Beatles
-\item Other: \Qline{4cm}
-\end{Qlist}
-}
+\newcommand*{\xMinLIFE}{0}%
+\newcommand*{\xMaxLIFE}{18}%
+\newcommand*{\yMinLIFE}{0}%
+\newcommand*{\yMaxLIFE}{6}%
 
-\minisec{Please evaluate the following composers}
-\vskip.5em
 
-\QItem[a]{ \Qq{Mozart} \Qtab{3cm}{horrible \Qrating{5} fantastic}}
+\Qitem{ \Qq{Draw a curve of how you experienced time in your life until now \\ up is fast, down is slow} }
 
-\QItem[b]{ \Qq{Beethoven} \Qtab{3cm}{horrible \Qrating{5} fantastic}}
+\begin{tikzpicture}[thick,scale=0.5, every node/.style={scale=0.5}]
 
-\QItem[c]{ \Qq{Johann S. Bach} \Qtab{3cm}{horrible \Qrating{5} fantastic}}
+    \foreach \i in {\xMinLIFE,...,\xMaxLIFE} {
+        \draw [very thin,gray] (\i,\yMinLIFE) -- (\i,\yMaxLIFE) ;
+    }
+    
+     \foreach \x [count=\i] in {0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90} {
+        \draw [very thin,gray] (\i-1, \yMinLIFE) -- (\i-1, \yMaxLIFE) node [below] at (\i-1, \yMinLIFE) {\x};
+    }
+    
+    \foreach \i in {\yMinMONTH,...,\yMaxMONTH} {
+        \draw [very thin,gray] (\xMinLIFE,\i) -- (\xMaxLIFE,\i) node [right] (\xMinLIFE,\i) {};
+    }
 
-\QItem[d]{ \Qq{John Lennon}\Qtab{2.5cm}{\parbox[t]{3.3cm}{\raggedleft
-Uh, well, I do not like his music very much}
-\Qrating{7} \parbox[t]{3cm}{Oh, yes, you know, really great
-stuff}}}
+\draw [thick, black] (0,3) -- (\xMaxLIFE, 3);
 
-\QItem[e]{ \Qq{Elvis}\Qtab{2.5cm}{\parbox[t]{3.3cm}{\raggedleft
-Uh, well, I do not like his music very much}
-\Qrating{7} \parbox[t]{3cm}{Oh, yes, you know, really great
-stuff}}}
+\end{tikzpicture}
 
-\section*{About this questionnaire}
 
-\QItem{\Qq{Do you like the style so far?} \Qtab{5.5cm}{\QO{} Yes
-\hskip0.5cm \QO{} No}}
-
-\QItem{\Qq{Is it really worth the ink?} \Qtab{5.5cm}{\QO{} Guess so.
-\hskip0.5cm \QO{} Probably not. \hskip0.5cm \QO{} Don't know.}}
-
-\QItem{\Qq{How does this item look different from the previous one?}
-\Qtab{10.5cm}{\QO{}\Qtab{0.6cm}{Oh. Does it?}}\par
-\Qtab{10.5cm}{\QO{}\Qtab{0.6cm}{No clue. I just can't figure it out.
-So sorry.}}\par
-\Qtab{10.5cm}{\QO{}\Qtab{0.6cm}{I guess what you mean is that here
-the different answer options are below each other.}}\par
-}
-
-\QItem[a]{ \Qq{Please describe your first impression.} \Qlines{2} }
-
-\QItem[b]{ \Qq{In case you would like some more lines to write, here
-they are:} \Qlines{4} }
+% \foreach \x [count=\xi] in {a,...,e}
 
 \end{document}
