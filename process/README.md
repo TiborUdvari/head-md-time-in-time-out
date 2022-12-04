@@ -2,8 +2,6 @@
 
 [2022-10-23-research.md](./2022-10-23-research.md)
 
-[2022-10-23-research.md](./2022-10-23-research.md)
-
 [2022-10-24-questionnaire-prep.md](.2022-10-24-questionnaire-prep.md)
 
 [2022-10-27-questionnaire-latex](./2022-10-27-questionnaire-latex.md)
