@@ -21,6 +21,8 @@ float mm2px(float mm) {
 
 int fontIndex = 0;
 int sizeIndex = 0;
+int screenIndex = 0;
+String displayText = "Hello e-ink";
 
 PFont customFont;
 
@@ -41,35 +43,56 @@ String[] fontNames = {
 
 int[] fontSizes = { 9, 12, 18, 24 };
 
+JSONArray einkScreens;
+
 void updateCurrentFont() {
   println("Current font is " + fontNames[fontIndex] + " at size " + fontSizes[sizeIndex]);
   customFont = createFont(fontNames[fontIndex], fontSizes[sizeIndex]);
   textFont(customFont);
 }
 
+void updateScreenSize() {
+  JSONObject screen = einkScreens.getJSONObject(screenIndex); 
+  
+  int w = (int) mm2px(screen.getFloat("w (mm)"));
+  int h = (int) mm2px(screen.getFloat("h (mm)"));
+  
+  // 200x200 1.54inch Schwarz / Weiss E-Ink Display
+  String name = screen.getString("Name");
+  displayText = name;
+  println(name);
+  surface.setSize(w, h);
+
+}
+
 void setup() {
   size(600, 600);
   updateCurrentFont();
+  einkScreens = loadJSONArray("einkdata.json");
 }
 
 void draw(){
   background(255);
+  
+  
   fill(0);
   
-  rect(0,0, mm2px(30), mm2px(30));
-  
-  fill(255);
   textSize(fontSizes[sizeIndex]);
   textAlign(LEFT, TOP);
   //text("30mm x 30mm", mm2px(15), mm2px(15));
-  text("30mm x 30mm", 0, 0);
-
+  text(displayText, 0, 0);
 }
 
 void keyPressed() {
+  println(key);
+  if (key == ' ') {
+    screenIndex = (screenIndex + 1) % einkScreens.size();
+  }
+  
+  /*
   if (key != CODED) {
     return;
-  }
+  }*/
   
   println("key pressed");
   if (keyCode == UP) {
@@ -88,5 +111,7 @@ void keyPressed() {
     fontIndex = (fontNames.length + fontIndex - 1) % fontSizes.length; 
   }
   
+  
+  updateScreenSize();
   updateCurrentFont();
 }
