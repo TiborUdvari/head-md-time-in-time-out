@@ -23,7 +23,11 @@ void setup() {
   size(600, 600);
   background(255);
   fill(0);
-    
-  text("30mm x 30mm", 15, 15);
+  
   rect(0,0, mm2px(30), mm2px(30));
+  
+  fill(255);
+  textSize(10);
+  textAlign(CENTER);
+  text("30mm x 30mm", mm2px(15), mm2px(15));
 }
