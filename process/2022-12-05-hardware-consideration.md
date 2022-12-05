@@ -19,4 +19,3 @@ float mm2px(float mm) {
 ```
 
 ![Real world size simulation](./img/2022-12-05-size-sim.webp)
-
