@@ -4,13 +4,7 @@ I compiled a few object references of things that might work as input on a [Pint
 
 My primary output is text and input will be some sort of buttons, so different families of portable objects come to the front.
 
-## Sony Walkman
-I liked how this object has buttons on the side instead of the front, what we commonly see with screen displays.
 
-<img src="https://media.wired.com/photos/5933981a283bfc394dcc0232/master/pass/4d06def22512d6b950778f1cb315a836-origpng.jpeg" style="float:left;" width="200"/>
-   
-<img src="https://i.pinimg.com/564x/62/ee/fe/62eefe2f2eff9b4d2267db2ce8159dcc.jpg" width="200"/>
-<div style="clear:both;"></div>
 
 ## Watch Calculators
 These watches looked like calculators. Adding the buttons in the front changes the size of the screen.
@@ -33,6 +27,14 @@ The aspect ratios of the screens seem similar to the e-ink screens I have been e
 <img src="https://i.pinimg.com/564x/7e/d4/ba/7ed4ba6a17fe187f4a96c13db2511f9c.jpg" width="200" style="float:left;"/>
    
 <img src="https://i.pinimg.com/564x/66/cd/56/66cd56a42457bfd01519334c33c47204.jpg" width="200"/>
+
+## Sony Walkman
+I liked how this object has buttons on the side instead of the front, what we commonly see with screen displays.
+
+<img src="https://media.wired.com/photos/5933981a283bfc394dcc0232/master/pass/4d06def22512d6b950778f1cb315a836-origpng.jpeg" style="float:left;" width="200"/>
+   
+<img src="https://i.pinimg.com/564x/62/ee/fe/62eefe2f2eff9b4d2267db2ce8159dcc.jpg" width="200"/>
+<div style="clear:both;"></div>
 
 ## E-INK wearable screens 
 The all-around wrapping of the screen is novel but might have usability issues as it occludes part of the screen from the wearer at all times.
