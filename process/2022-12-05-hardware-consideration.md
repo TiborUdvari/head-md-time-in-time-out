@@ -5,3 +5,7 @@ I'm looking at [these](https://www.bastelgarage.ch/bauteile/displays/e-ink-epape
 
 They function with the [Adafruit GFX library](https://learn.adafruit.com/adafruit-gfx-graphics-library), which uses [GNU Freefonts](https://www.gnu.org/software/freefont/) encoded into a bitmap format. This has memory implications, as noted [here](https://learn.adafruit.com/adafruit-gfx-graphics-library/using-fonts).
 
+## Size simulation
+```
+Simulation
+```
