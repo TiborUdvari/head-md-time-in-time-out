@@ -21,3 +21,5 @@ float mm2px(float mm) {
 ![Real world size simulation](./img/2022-12-05-size-sim.webp)
 
 [Available bitmap fonts](https://learn.adafruit.com/adafruit-gfx-graphics-library/using-fonts) are in `9, 12, 18, 24` pt sizes.
+
+Decision: freesans or freemono
