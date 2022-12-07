@@ -20,3 +20,5 @@ I narrowed down the search to the following screens:
 I tested [Gone Home](https://store.steampowered.com/app/232430/Gone_Home/).
 
 ![Gone Home](./img/2022-12-06_gone-home.webp)
+
+![Resolution Cycling](./img/2022-12-06_resolution-cycling.gif)
