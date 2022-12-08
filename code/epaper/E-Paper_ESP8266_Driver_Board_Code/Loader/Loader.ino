@@ -26,8 +26,12 @@ void setup(void) {
   wifi_station_dhcpc_stop();
   struct ip_info info;
   
-  IP4_ADDR(&info.ip, 192, 168, 1, 189);
-  IP4_ADDR(&info.gw, 192, 168, 1, 1);
+  //IP4_ADDR(&info.ip, 192, 168, 1, 189);
+  //IP4_ADDR(&info.gw, 192, 168, 1, 1);
+
+  IP4_ADDR(&info.ip, 192, 168, 95, 189);
+  IP4_ADDR(&info.gw, 192, 168, 95, 1);
+
   IP4_ADDR(&info.netmask, 255, 255, 255, 0);
   wifi_set_ip_info(STATION_IF, &info);
 
