@@ -1,5 +1,13 @@
 # Hardware testing
 
+## Device size
+The 1.54 inch square screen seems more realistic as a wearable size. 
+
+![Size test 1](./img/2022-12-08_sizing3.webp)
+![Size test 2](./img/2022-12-08_sizing1.webp)
+![Size test 3](./img/2022-12-08_sizing2.webp)
+
+
 I chose a strip by [eupholie](https://www.instagram.com/p/CdD4G3ZKyVs/) to test the resolution, because it is black and white and the text is very thin. 
 
 ## Animation
