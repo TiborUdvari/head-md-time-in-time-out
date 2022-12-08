@@ -11,8 +11,8 @@
 //const char* password = "password";
 //const char* ssid = "TheHome";
 //const char* password = "qq330447168";
-const char *ssid = "JSBPI"; //"your ssid";
-const char *password = "waveshare0755";   //"your password";
+const char *ssid = "HEAD-EVENT"; //"your ssid";
+const char *password = "Headevent2022";   //"your password";
 ESP8266WebServer server(80);
 IPAddress myIP;       // IP address in your local wifi net
 
@@ -25,6 +25,7 @@ void setup(void) {
   //Static IP setting---by Lin
   wifi_station_dhcpc_stop();
   struct ip_info info;
+  
   IP4_ADDR(&info.ip, 192, 168, 1, 189);
   IP4_ADDR(&info.gw, 192, 168, 1, 1);
   IP4_ADDR(&info.netmask, 255, 255, 255, 0);
