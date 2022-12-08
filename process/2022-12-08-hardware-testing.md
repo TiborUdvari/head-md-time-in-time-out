@@ -4,8 +4,11 @@ I chose a strip by [eupholie](https://www.instagram.com/p/CdD4G3ZKyVs/) to test 
 
 ## Animation
 ![animation](./img/2022-12-08_eupholie.gif)
+
 The animation has a big 
-[refresh time as it can be seen here.](./img/2022-12-08_eupholie-eink-horizontal.mp4)
+[refresh time as it can be seen here.](./img/2022-12-08_eupholie-eink-horizontal.mp4) [(Direct download)](https://github.com/TiborUdvari/head-md-time-in-time-out/raw/main/process/img/2022-12-08_eupholie-eink-horizontal.mp4)
+
+
 
 ## Level vs dithering
 Dithering allows to have a bit more resolution. Notice how the eye dissapears with a naive level.
