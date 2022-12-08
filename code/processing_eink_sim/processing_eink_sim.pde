@@ -28,8 +28,8 @@ float pixelDensity = 1;
 
 
 
-float ppi = 72;
-float pixelDensity = 1;
+float ppi = 226;
+float pixelDensity = 2;
 
 float inch2mm = 25.4;
 float ppmm = ppi / inch2mm;
