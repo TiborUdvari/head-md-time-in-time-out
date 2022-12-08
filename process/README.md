@@ -15,3 +15,7 @@
 [2022-12-05-hardware-consideration](./2022-12-05-hardware-consideration.md)
 
 [2022-12-06-hardware-simulation.md](./2022-12-06-hardware-simulation.md)
+
+[2022-12-07-hardware.md](./2022-12-07-hardware.md)
+
+[2022-12-08-hardware-testing.md](./2022-12-08-hardware-testing.md)
