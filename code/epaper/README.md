@@ -13,3 +13,5 @@
   IP4_ADDR(&info.ip, 192, 168, 1, 189);
   IP4_ADDR(&info.gw, 192, 168, 1, 1);
 ```
+
+![Problem](https://www.waveshare.com/w/upload/e/e4/Epd2in13_esp_chose3.png)
