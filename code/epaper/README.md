@@ -6,6 +6,8 @@
 
 [E-Paper ESP8266 Driver Board Documentation](https://www.waveshare.com/wiki/E-Paper_ESP8266_Driver_Board)
 
+[Locating arduino boards in the Arduino 2 IDE](https://support.arduino.cc/hc/en-us/articles/4415103213714-Find-sketches-libraries-board-cores-and-other-files-on-your-computer#boards)
+
 ### Notes
 `Loader.ino` demo IP connection is not reliable, it needs to have an correct ip assigned to it without conflicts. It doesn't seem to use DHCP.
 
@@ -15,3 +17,4 @@
 ```
 
 ![Problem](https://www.waveshare.com/w/upload/e/e4/Epd2in13_esp_chose3.png)
+
