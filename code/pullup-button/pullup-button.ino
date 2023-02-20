@@ -1,4 +1,4 @@
-int buttonPin = 4; // GPIO 4 (D2) for ESP8266 https://randomnerdtutorials.com/esp8266-pinout-reference-gpios/
+int buttonPin = 3; // GPIO 4 (D2) for ESP8266 https://randomnerdtutorials.com/esp8266-pinout-reference-gpios/
 
 void setup() {
    // Define pin #12 as input and activate the internal pull-up resistor

@@ -4,90 +4,146 @@
 #include "GUI_Paint.h"
 #include "imagedata.h"
 #include <stdlib.h>
+#include "Excuses.h"
 
-int buttonPin = 4; // GPIO 4 (D2) for ESP8266 https://randomnerdtutorials.com/esp8266-pinout-reference-gpios/
+//int buttonPin = 16;  // GPIO 4 (D2) for ESP8266 https://randomnerdtutorials.com/esp8266-pinout-reference-gpios/
+int buttonPin = 0;  // GPIO 4 (D2) for ESP8266 https://randomnerdtutorials.com/esp8266-pinout-reference-gpios/
+
 int cigaretteCounter = 0;
+char input; // for serial
 
 bool buttonPressed = false;
 bool pButtonPressed = false;
 
+UBYTE *BlackImage;
 
-enum ExcuseCategory { BEGINNER, SOCIAL };
+unsigned long seed = 0;
 
-typedef struct {
-  ExcuseCategory category;
-  const char* message;
-} excuse;
-
-excuse excuses[] = {
-  { .category = BEGINNER, .message = "Category" },
-  { .category = BEGINNER, .message = "Test" }
-};
-
-/* Entry point ----------------------------------------------------------------*/
-void setup()
-{
+void setup() {
+    Serial.begin(115200);
+  //randomSeed(randomSeed);
   pinMode(buttonPin, INPUT_PULLUP);
-   pinMode(LED_BUILTIN, OUTPUT);     // Initialize the LED_BUILTIN pin as an output
+  pinMode(LED_BUILTIN, OUTPUT);  // Initialize the LED_BUILTIN pin as an output
 
-  printf("Ciggy Time v1 \r\n");
+  printf("Smoke Break v1 \r\n");
   DEV_Module_Init();
 
   printf("e-Paper Init and Clear...\r\n");
-    EPD_1IN54_V2_Init();
-    EPD_1IN54_V2_Clear();
-    DEV_Delay_ms(500);
+  EPD_1IN54_V2_Init();
+  EPD_1IN54_V2_Clear();
+  DEV_Delay_ms(500);
 
   //Create a new image cache
-  UBYTE *BlackImage;
   /* you have to edit the startup_stm32fxxx.s file and set a big enough heap size */
-    UWORD Imagesize = ((EPD_1IN54_V2_WIDTH % 8 == 0)? (EPD_1IN54_V2_WIDTH / 8 ): (EPD_1IN54_V2_WIDTH / 8 + 1)) * EPD_1IN54_V2_HEIGHT;
-    if((BlackImage = (UBYTE *)malloc(Imagesize)) == NULL) {
-        printf("Failed to apply for black memory...\r\n");
-        while(1);
-    }
-    printf("Paint_NewImage\r\n");
-    Paint_NewImage(BlackImage, EPD_1IN54_V2_WIDTH, EPD_1IN54_V2_HEIGHT, 270, WHITE);
-    
-    Paint_SetRotate(0);
-    
-#if 0   //show image for array    
-    printf("show image for array\r\n");
-    Paint_SelectImage(BlackImage);
-    Paint_Clear(WHITE);
-    Paint_DrawBitMap(gImage_1in54);
+  UWORD Imagesize = ((EPD_1IN54_V2_WIDTH % 8 == 0) ? (EPD_1IN54_V2_WIDTH / 8) : (EPD_1IN54_V2_WIDTH / 8 + 1)) * EPD_1IN54_V2_HEIGHT;
+  if ((BlackImage = (UBYTE *)malloc(Imagesize)) == NULL) {
+    printf("Failed to apply for black memory...\r\n");
+    while (1)
+      ;
+  }
+  printf("Paint_NewImage\r\n");
+  Paint_NewImage(BlackImage, EPD_1IN54_V2_WIDTH, EPD_1IN54_V2_HEIGHT, 270, WHITE);
 
-    EPD_1IN54_V2_Display(BlackImage);
-    DEV_Delay_ms(2000);
-#endif
+  Paint_SetRotate(0);
+  showTitle();
+  //showNextExcuse();
+  //EPD_1IN54_V2_Sleep();
 
-// Fonts are 8, 12, 16, 20, 24
+}
 
-#if 1
+void showTitle() {
+  cigaretteCounter = 0;
 
-    Paint_SelectImage(BlackImage);
-    Paint_Clear(WHITE);
-    //Paint_DrawNum(5, 110, 123456789, &Font20, BLACK, WHITE);
-    //Paint_DrawString_EN(5, 85, "Smoke Break", &Font20, WHITE, BLACK);
-    //Paint_DrawString_EN(5, 85, "Just this one time to see how I like it!", &Font20, WHITE, BLACK);
-    //Paint_DrawString_EN(5, 5, "I only smoke when I am stressed out, and I am not stressed out right now.", &Font20, WHITE, BLACK);
-    
-    //Paint_DrawString_EN(5, 5, "I only smoke when I am stressed out, and I am not stressed out right now.", &Font20, WHITE, BLACK);
-    //Paint_DrawString_EN(5, 5, excuses[0].message.c_str(), &Font20, WHITE, BLACK);
-    Paint_DrawString_EN(5, 5, excuses[1].message, &Font20, WHITE, BLACK);
+  Paint_SelectImage(BlackImage);
+  Paint_Clear(WHITE);
+  
+  //Paint_DrawString_EN(5, 85, "SMOKE BREAK", &Font24, WHITE, BLACK);
 
-    Paint_DrawString_EN(5, EPD_1IN54_V2_HEIGHT - 5 - Font16.Height, "Cigarettes 2039", &Font16, WHITE, BLACK);
+  Paint_DrawString_EN(55, 85 - Font16.Height, "SMOKE", &Font24, WHITE, BLACK);
+  Paint_DrawString_EN(55, 85 + Font16.Height, "BREAK", &Font24, WHITE, BLACK);
 
-    EPD_1IN54_V2_Display(BlackImage);
-    DEV_Delay_ms(2000);
-#endif
+  EPD_1IN54_V2_Display(BlackImage);
+  //DEV_Delay_ms(2000);
 
-// todo
-// title screen
-// cycle between texts - stupid way
-// button
+}
 
-#if 0   // Drawing on the image
+void showDayCounter() {
+
+  Paint_SelectImage(BlackImage);
+  Paint_Clear(WHITE);
+
+  Paint_DrawString_EN(5, 5, "Days without smoking 1", &Font20, WHITE, BLACK);
+
+  EPD_1IN54_V2_Display(BlackImage);
+  DEV_Delay_ms(1000);
+  //EPD_1IN54_V2_Sleep();
+}
+
+void showNextExcuse() {
+  cigaretteCounter++;
+  Paint_SelectImage(BlackImage);
+  Paint_Clear(WHITE);
+
+  int idx = random(n_excuses);
+  excuse ex = excuses[idx];
+  Paint_DrawString_EN(5, 5, ex.message, &Font20, WHITE, BLACK);
+  char s [20];
+  sprintf (s, "Cigarettes %d", cigaretteCounter);
+  
+  Paint_DrawString_EN(5, EPD_1IN54_V2_HEIGHT - 5 - Font16.Height, s, &Font16, WHITE, BLACK);
+
+  EPD_1IN54_V2_Display(BlackImage);
+  DEV_Delay_ms(1000);
+  //EPD_1IN54_V2_Sleep();
+}
+
+void loop() {
+  int buttonValue = digitalRead(buttonPin);
+  //int buttonValue = analogRead(buttonPin);
+  //Serial.println("loop");
+  //Serial.println(buttonValue);
+  //Serial.println(buttonValue);
+  buttonPressed = buttonValue == HIGH;
+  //buttonPressed = true; 
+
+  if(Serial.available()){
+        input = Serial.read();
+        if (input == 'm') {
+          showNextExcuse();
+        }
+
+        if (input == 'q') {
+          showDayCounter();
+        }
+
+        if (input == 'h') {
+          showTitle();
+        }
+  }
+
+  bool onButtonUp = pButtonPressed && !buttonPressed;
+
+  if (onButtonUp) {
+    //Serial.println("click");
+    showNextExcuse();
+  }
+
+  pButtonPressed = buttonPressed;
+
+  digitalWrite(LED_BUILTIN, buttonValue);  // Built in LED feedback
+
+  delay(1);
+
+  //delay(100);
+/*
+    digitalWrite(LED_BUILTIN, HIGH);  // Built in LED feedback
+delay(100);
+    digitalWrite(LED_BUILTIN, LOW);  // Built in LED feedback
+*/
+}
+
+/*
+#if 0  // Drawing on the image
     printf("Drawing\r\n");
     
     //1.Select Image
@@ -119,9 +175,39 @@ void setup()
     EPD_1IN54_V2_Display(BlackImage);
     DEV_Delay_ms(2000);
 #endif
+*/
 
+/*
+#if 0   //show image for array    
+    printf("show image for array\r\n");
+    Paint_SelectImage(BlackImage);
+    Paint_Clear(WHITE);
+    Paint_DrawBitMap(gImage_1in54);
+
+    EPD_1IN54_V2_Display(BlackImage);
+    DEV_Delay_ms(2000);
+#endif
+
+// Fonts are 8, 12, 16, 20, 24
+*/
+
+//EPD_1IN54_V2_Sleep();
+//free(BlackImage);
+//BlackImage = NULL;
+
+/*
+    printf("Clear...\r\n");
+    EPD_1IN54_V2_Init();
+    EPD_1IN54_V2_Clear();
+
+    printf("Goto Sleep...\r\n");
+    EPD_1IN54_V2_Sleep();
+    free(BlackImage);
+    BlackImage = NULL;
+  */
+
+/*
 #if 0   //Partial refresh, example shows time    
-
     // The image of the previous frame must be uploaded, otherwise the
     // first few seconds will display an exception.
     EPD_1IN54_V2_Init();
@@ -158,45 +244,6 @@ void setup()
         EPD_1IN54_V2_DisplayPart(BlackImage);
         DEV_Delay_ms(500);//Analog clock 1s
     }
-
 #endif
 
-  //EPD_1IN54_V2_Sleep();
-  //free(BlackImage);
-  //BlackImage = NULL;
-  
-  /*
-    printf("Clear...\r\n");
-    EPD_1IN54_V2_Init();
-    EPD_1IN54_V2_Clear();
-
-    printf("Goto Sleep...\r\n");
-    EPD_1IN54_V2_Sleep();
-    free(BlackImage);
-    BlackImage = NULL;
   */
-}
-
-void showTitle() {
-
-}
-
-void showNextExcuse() {
-
-}
-
-void loop()
-{
-  int buttonValue = digitalRead(buttonPin);
-
-  buttonPressed = buttonValue == HIGH;
-
-  bool onButtonUp = pButtonPressed && !buttonPressed;
-  if (onButtonUp) {
-    newText();    
-  }
-
-  pButtonPressed = buttonPressed;
-  
-  digitalWrite(LED_BUILTIN, buttonValue); // Built in LED feedback
-}

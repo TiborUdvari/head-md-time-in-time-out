@@ -1,0 +1,85 @@
+enum ExcuseCategory { BEGINNER,
+                      SOCIAL };
+
+typedef struct {
+  ExcuseCategory category;
+  const char *message;
+} excuse;
+
+const int n_excuses = 69;
+//https://www.goodreads.com/quotes/tag/smoking
+
+excuse excuses[] = {
+  { .category = BEGINNER, .message = "Tastes good like a cigarette should!" },
+    { .category = BEGINNER, .message = "A time out is just long enough for a cigarette!" },
+    { .category = BEGINNER, .message = "That is good smokin’" },
+        { .category = BEGINNER, .message = "Smoking kills. If you’re killed, you’ve lost a very important part of your life." },
+        { .category = BEGINNER, .message = "All I wanna do is forget and get loose" },
+        { .category = BEGINNER, .message = "Smoking is indispensable if one has nothing to kiss" },
+  { .category = BEGINNER, .message = "Just this one time to see how I like it!" },
+  { .category = BEGINNER, .message = "It helps me relax" },
+  { .category = BEGINNER, .message = "It's just a way to relax and unwind." },
+  { .category = BEGINNER, .message = "Everyone else is doing it." },
+  { .category = BEGINNER, .message = "It helps me cope with stress of HEAD presentations." },
+  { .category = BEGINNER, .message = "It's just a small, harmless habit." },
+  { .category = BEGINNER, .message = "Pleasure to burn!!!" },
+  { .category = BEGINNER, .message = "It's just a way to have a break and take a moment for myself." },
+  { .category = BEGINNER, .message = "You are welcome." },
+  { .category = BEGINNER, .message = "it's too late for me to quit now" },
+  { .category = BEGINNER, .message = "I only smoke a few cigarettes a day" },
+  { .category = BEGINNER, .message = "I smoke when I am on vacation or taking a break from work" },
+  { .category = BEGINNER, .message = "Quitting is easy, I have done it many times" },
+  { .category = BEGINNER, .message = "Smoking is the leading cause of statistics " },
+  { .category = BEGINNER, .message = "I make it a rule never to smoke while I'm sleeping." },
+  { .category = BEGINNER, .message = "If smoking is not allowed in heaven, I shall not go." },
+  { .category = BEGINNER, .message = "I know a man who gave up smoking, drinking, sex, and rich food. He was healthy right up to the day he killed himself." },
+  { .category = BEGINNER, .message = "I'm not really a heavy smoker any more. I only get through two lighters a day." },
+  { .category = BEGINNER, .message = "I could tell myself I do not want to smoke, but I wouldn't believe me." },
+  { .category = BEGINNER, .message = "Open for more." },
+  { .category = BEGINNER, .message = "I am not really smoking, I am just holding a cigarette for a friend." },
+  { .category = BEGINNER, .message = "I only smoke when I am stressed out, and I am not stressed out right now." },
+  { .category = BEGINNER, .message = "I am not actually inhaling, I am just pretending to smoke." },
+  { .category = BEGINNER, .message = "Cigarettes are my only source of vitamin N (nicotine)." },
+  { .category = BEGINNER, .message = "I am not really a smoker, I am just a casual smoker." },
+  { .category = BEGINNER, .message = "I just really enjoy the taste." },
+  { .category = BEGINNER, .message = "I smoke because it makes me look cool and sophisticated, like Douglas." },
+  { .category = BEGINNER, .message = "I only smoke a few cigarettes a day, it can't be that bad for me." },
+  { .category = BEGINNER, .message = "I am going to quit smoking someday, but not right now." },
+  { .category = BEGINNER, .message = "I only smoke when I am bored, and I am never bored." },
+  { .category = BEGINNER, .message = "I only smoke the 'light' or 'low tar' cigarettes, so it's easy." },
+  { .category = BEGINNER, .message = "I smoke because it helps me to relax and unwind after a long day." },
+  { .category = BEGINNER, .message = "I do not smoke that much, so it's not a big deal." },
+  { .category = BEGINNER, .message = "I smoke because it's a good way to take a break from work and clear my mind." },
+  { .category = BEGINNER, .message = "I am not really a smoker, I just smoke when I drink alcohol." },
+  { .category = BEGINNER, .message = "I am not harming anyone else by smoking, so it's not a problem." },
+  { .category = BEGINNER, .message = "I smoke because it helps me to fit in with my friends." },
+  { .category = BEGINNER, .message = "I only smoke a few cigarettes a week, so it's not a big deal." },
+  { .category = BEGINNER, .message = "I am going to quit smoking someday, but I am just not ready yet." },
+  { .category = BEGINNER, .message = "I smoke because it helps me to cope with difficult situations." },
+  { .category = BEGINNER, .message = "I only smoke when I am feeling anxious so it's not a daily habit." },
+  { .category = BEGINNER, .message = "I smoke because it's a way for me to take a break and get some time to myself." },
+  { .category = BEGINNER, .message = "I only smoke when I am hanging out with Hanieh, so it's not a big part of my life." },
+    { .category = BEGINNER, .message = "It's not a big part of my life." },
+  { .category = BEGINNER, .message = "I smoke because it's a way for me to fit in." },
+  { .category = BEGINNER, .message = "I am not really a smoker, I just smoke when I am out at bars or clubs." },
+  { .category = BEGINNER, .message = "I am not harming anyone else by smoking, so it's not a problem." },
+  { .category = BEGINNER, .message = "I smoke because it's a way for me to de-stress and relax." },
+  { .category = BEGINNER, .message = "I only smoke a few cigarettes a month, so it's not a big deal." },
+  { .category = BEGINNER, .message = "I am going to quit smoking someday" },
+  { .category = BEGINNER, .message = "I smoke because it helps me to feel more confident and assertive." },
+    { .category = BEGINNER, .message = "No spirit - no glory" },
+        { .category = BEGINNER, .message = "Everything starts now." },
+                { .category = BEGINNER, .message = "Genuine taste." },
+  { .category = BEGINNER, .message = "I'd walk a mile for a Camel." },
+  { .category = BEGINNER, .message = "Good taste doesn't change." },
+  { .category = BEGINNER, .message = "Enjoy the moment" },
+  { .category = BEGINNER, .message = "Stir the senses" },
+  { .category = BEGINNER, .message = "Straight up" },
+  { .category = BEGINNER, .message = "It's in your hands." },
+  { .category = BEGINNER, .message = "The international passport to smoking pleasure." },
+  { .category = BEGINNER, .message = "A moment of pleasure" },
+
+
+
+
+};
